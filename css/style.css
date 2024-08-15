@@ -1,0 +1,641 @@
+/* website font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* general */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #e0ddcf7c;
+    overflow-x: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+h2, h3 {
+    /* color: rgb(46, 54, 22); */
+    color: rgb(62, 71, 36);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+p {
+    font-size: 15.925px;
+    color: rgb(126, 134, 102);
+}
+
+/*  transition */
+
+a,
+ .btn {
+    transition: all 500ms ease;
+}
+
+/* desktop navigation */
+
+#desktop-nav {
+    background-color: rgb(74, 82, 49);
+    color: #fefae0;
+}
+
+nav, 
+ .nav-links {
+    display: flex;
+}
+
+nav {
+    justify-content: space-around;
+    align-items: center;
+    height: 17vh;
+}
+
+.nav-links {
+    gap: 2rem;
+    list-style: none;
+    font-size: 1.5rem;
+}
+
+a {
+    color: #fefae0;
+    text-decoration: none;
+    text-decoration-color: white;
+}
+
+a:hover {
+    color: #e0ddcf;
+    text-decoration: underline;
+    text-underline-offset: 1rem;
+}
+
+.logo {
+    font-size: 2rem;
+}
+
+/* to remove the ibeam cursor when hovering over the logo */
+.logo:hover {
+    cursor: default;
+}
+
+/* hamburger menu */
+
+#hamburger-nav {
+    display: none;
+    color: #fefae0;
+    background-color: rgb(74, 82, 49);
+}
+
+.hamburger-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 33px;
+    width: 30px;
+    cursor: pointer; 
+}
+
+.menu-links {
+    position: fixed;
+    top: 0;
+    right: -400px; /* start off-screen */
+    width: 200px;
+    /* height: 100vh; */
+    height: 100%;
+    background-color: rgb(74, 82, 49);
+    /* background-color: lightgrey; */
+    /* box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5); */
+    padding: 45px 10px; /* ensure padding to separate content from edges */
+    transition: all 0.4s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+}
+
+.menu-links.open {
+    right: -200px; /* slide in kinda idk */
+}
+
+.menu-links a {
+    display: block;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #fefae0;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+#first {
+    margin-top: 10vh;
+}
+
+#icon-close {
+    position: absolute;
+    right: 25px;
+    /* top: auto; */
+    cursor: pointer; 
+}       
+
+.menu-links li {
+    list-style: none;
+    /* margin: 10px 0; */
+}
+
+.menu-links a:hover {
+    color: #e0ddcf;
+    text-decoration: underline;
+    text-underline-offset: 1rem;
+}
+
+/* shifted body when menu is open */
+body.shifted {
+    transform: translateX(-200px); /* shift to left by sidebar width */
+} 
+
+body.shifted #hamburger-toggle i {
+    display: none;
+}
+
+body.shifted #hamburger-toggle {
+    pointer-events: none;
+}
+
+.menu-links.open ~ #hamburger-toggle {
+    pointer-events: none;
+}
+
+/* 
+    isnt necessary i couldn't understand why the sidebar isnt 
+    sticking to the body 
+*/
+.background-cover {
+    position: absolute; 
+    left: 0;
+    width: 150vw; 
+    height: 17vh; 
+    background-color: rgb(74, 82, 49); 
+    z-index: -1; 
+}
+
+/* sections */
+
+section {
+    padding-top: 4vh;
+    height: 96vh;
+    margin: 0 10rem;
+    box-sizing: border-box;
+    min-height: fit-content;
+}
+
+.section-container, 
+    #profile, .section__pic-container,
+        #socials-container {
+            display: flex;
+}
+
+/* profile section */
+
+/* #profile {
+    display: flex;
+} */
+
+#profile {
+    justify-content: center;
+    gap: 5rem;
+    height: 80vh;
+}
+
+.section__pic-container {
+    height: 400px;
+    width: 400px;
+    margin: auto 0;
+}
+
+.section__text {
+    align-self: center;
+    text-align: center;
+}
+
+.section__text p {
+    font-weight: 600;
+}
+
+.section__text__p1 {
+    font-size: 1.15rem;
+    text-align: center;
+}
+
+.section__text__p2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+.title {
+    font-size: 3rem;
+    color: rgb(62, 71, 36);
+    text-align: center;
+}
+
+#socials-container {
+    justify-content: center;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+/* icons */
+
+.icon {
+    cursor: pointer;
+    height: 2rem;
+}
+
+/* buttons */
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn {
+    color: rgb(62, 71, 36);
+    font-size: 85%;
+    font-weight: 600;
+    transition: all 500ms ease;
+    padding: 1rem;
+    width: 8.5rem;
+    border-radius: 2rem;
+}
+
+.btn-color-1, 
+    .btn-color-2 {
+        border: rgb(74, 82, 49) 0.1rem solid;
+}
+
+.btn-color-1:hover, 
+    .btn-color-2:hover {
+        cursor: pointer;
+}
+
+.btn-color-1, 
+    .btn-color-2:hover {
+        background: rgb(74, 82, 49);
+        color: #fefae0;
+}
+
+.btn-color-1:hover {
+    background: #e0ddcf7c;
+    color: rgb(62, 71, 36);
+}
+
+.btn-color-2 {
+    background: none;
+}
+
+.btn-color-2:hover {
+    border: rgb(74, 82, 49) 0.1rem solid;
+}
+
+.btn-container {
+    gap: 1rem;
+}
+
+/* about section */
+
+#about {
+    position: relative;
+}
+
+.about-containers {
+    gap: 2rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+.about-details-container {
+    justify-content: center;
+    flex-direction: column;
+}
+
+.about-containers,
+    .about-details-container {
+        display: flex;
+}
+
+.about-pfp {
+    border-radius: 2rem;
+}
+
+.arrow {
+    position: absolute;
+    right: -5rem;
+    bottom: 2.5rem;
+}
+
+.details-container {
+    padding: 1.5rem;
+    flex: 1;
+    /* background: #e0ddcf; */
+    border-radius: 2rem;
+    border: rgb(74, 82, 49) 0.1rem solid;
+    text-align: center;
+}
+
+.section-container {
+    gap: 4rem;
+    height: 80%;
+}
+
+.section__pic-container {
+    height: 400px;
+    width: 400px;
+    margin: auto 0;
+}
+
+.text-container p {
+    margin-bottom: 1em;
+    color: rgb(62, 71, 36);
+}
+
+/* experience section */
+
+#experience {
+    position: relative;
+    /* height: auto; */
+}
+
+#experience.expanded {
+    height: auto;
+}
+
+.experience-sub-title {
+    font-weight: 600;
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+    text-wrap: wrap;
+}
+
+.experience-details-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.article-container {
+    display: flex;
+    text-align: initial;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: space-evenly; /* replaced 'flex-start' with 'center' */
+}
+
+article {
+    display: flex;
+    width: 10rem;
+    justify-content: flex-start; 
+    align-items: left; /* affects the position of the checkmark for some reason */
+    gap: 0.7rem;
+}
+
+article p {
+    display: flex;
+    width: 7rem;
+    justify-content: left; 
+    align-items: center; 
+    gap: 0.5rem;
+}
+
+article .icon {
+    cursor: default;
+}
+
+#all-skills {
+    display: none;
+}
+
+.skills-btn {
+    width: 100%;
+    text-align: center;
+}
+
+.all-skills-container {
+    flex-direction: column;
+}
+
+.tech-toolkit {
+    justify-content: center;
+}
+
+
+/* projects section */
+
+#projects {
+    position: relative;
+}
+
+.project-img {
+    border-radius: 2rem; /*  for an actual image */
+    width: 90%;
+    height: 90%; 
+}
+
+.project-title {
+    margin: 1rem;
+}
+
+/* card styling */
+.card {
+    background: #e0ddcf7c;
+    border: rgb(62, 71, 36) 2px solid;
+    border-radius: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    flex: 0 0 auto;
+    width: 19rem;
+    overflow: hidden;
+    margin: 1rem;
+    display: flex;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: rgb(62, 71, 36);
+}
+
+.card-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: rgb(126, 134, 102);
+}
+
+.card-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    color: rgb(62, 71, 36);
+}
+
+.card-links {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: auto; 
+}
+
+.card-link-1, 
+    .card-link-2 {
+        color: rgb(62, 71, 36);
+        text-decoration: none;
+        transition: color 0.3s;
+        padding: 0.5rem 1rem;
+        border: 2px solid rgb(62, 71, 36); 
+        border-radius: 2rem; 
+        margin: 0.2rem;
+        display: inline-block; 
+}
+
+.card-link-2 {
+    color: #e0ddcf;
+    background-color: rgb(62, 71, 36);
+}
+
+.card-link-1:hover, 
+    .card-link-2:hover {
+        transition: all 500ms ease;
+    }
+
+.card-link-1:hover {
+    color: #e0ddcf ;
+    background-color: rgb(62, 71, 36);
+    text-decoration: none;
+}
+
+.card-link-2:hover {
+    color: rgb(62, 71, 36);
+    background-color: transparent;
+    text-decoration: none;
+}
+
+.card-link-1.disabled, 
+    .card-link-2.disabled {
+        color: rgb(126, 134, 102); 
+        border-color: rgb(126, 134, 102); 
+        background-color: transparent;
+        pointer-events: none; 
+}
+
+/* slider container */
+.slider-container {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 1.5rem;
+    padding: 1rem;
+    scroll-snap-type: x mandatory; 
+}
+
+.slider::-webkit-scrollbar {
+    display: none; 
+}
+
+/* slider nav buttons */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    background: rgb(62, 71, 36);
+    color: #e0ddcf;
+    border: none;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s;
+    z-index: 1;
+    transform: translateY(-50%);
+}
+
+.prev-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
+}
+
+.slider-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #e0ddcf7c;
+    margin: 20px auto;
+    padding: 0 15px 15px;
+    width: 80%;
+}
+
+.close {
+    color: rgb(126, 134, 102);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: rgb(62, 71, 36);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+video {
+    width: 100%;
+}
